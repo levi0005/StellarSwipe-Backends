@@ -44,6 +44,9 @@ import { ProductAnalyticsModule } from './analytics/product-analytics.module';
 import { BackupModule } from './backup/backup.module';
 import { AdminAnalyticsModule } from './admin/analytics/admin-analytics.module';
 import { MonitoringModule } from './monitoring/monitoring.module';
+import { MigrationModule } from './database/migration/migration.module';
+import { AlertsModule } from './monitoring/alerts/alerts.module';
+import { SorobanModule } from './soroban/soroban.module';
 
 @Module({
   imports: [
@@ -135,6 +138,9 @@ import { MonitoringModule } from './monitoring/monitoring.module';
     BackupModule,
     AdminAnalyticsModule,
     MonitoringModule,
+    MigrationModule,
+    AlertsModule,
+    SorobanModule,
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],

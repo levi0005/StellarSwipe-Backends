@@ -11,12 +11,14 @@ import { HorizonStreamController } from './services/horizon-stream.controller';
 import { HorizonStreamService } from './services/horizon-stream.service';
 import { EventProcessorService } from './services/event-processor.service';
 import { StellarIntegrationService } from './services/stellar-integration.service';
+import { WalletValidationModule } from './validation/wallet-validation.module';
 
 @Module({
   imports: [
     ConfigModule,
     EventEmitterModule.forRoot(),
     CacheModule,
+    WalletValidationModule,
   ],
   controllers: [TrustlineController, HorizonStreamController],
   providers: [
@@ -36,6 +38,7 @@ import { StellarIntegrationService } from './services/stellar-integration.servic
     HorizonStreamService,
     EventProcessorService,
     StellarIntegrationService,
+    WalletValidationModule,
   ],
 })
 export class StellarModule {}
