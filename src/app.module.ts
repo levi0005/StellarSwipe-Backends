@@ -18,6 +18,7 @@ import { StellarConfigService } from './config/stellar.service';
 
 import { LoggerModule } from './common/logger';
 import { SentryModule } from './common/sentry';
+import { ErrorClassificationModule } from './common/error-classification/error-classification.module';
 import { CacheModule } from './cache/cache.module';
 
 import { AuthModule } from './auth/auth.module';
@@ -154,6 +155,7 @@ import { SocialExportModule } from './social-export/social-export.module';
 
     LoggerModule,
     SentryModule,
+    ErrorClassificationModule,
     UsersModule,
     SignalsModule,
     TradesModule,

@@ -6,6 +6,7 @@ import { I18nValidationExceptionFilter, I18nValidationPipe } from 'nestjs-i18n';
 import * as compression from 'compression';
 import { AppModule } from "./app.module";
 import { GlobalExceptionFilter } from "./common/filters";
+import { ErrorClassificationService } from "./common/error-classification";
 import {
   LoggingInterceptor,
   TransformInterceptor,
@@ -105,11 +106,12 @@ async function bootstrap() {
   const instanceCoordinator = app.get(InstanceCoordinatorService);
   logger.info(`Application started on instance: ${instanceCoordinator.getInstanceId()}`);
 
-  // Global filters
-  app.useGlobalFilters(
-    new GlobalExceptionFilter(logger, sentryService),
-    new I18nValidationExceptionFilter({ detailedErrors: false }),
-  );
+// Global filters
+   const errorClassifier = app.get(ErrorClassificationService);
+   app.useGlobalFilters(
+     new GlobalExceptionFilter(logger, sentryService, errorClassifier),
+     new I18nValidationExceptionFilter({ detailedErrors: false }),
+   );
 
   // Global interceptors
   app.useGlobalInterceptors(new DeadlockRetryInterceptor());
