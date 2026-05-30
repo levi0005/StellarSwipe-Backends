@@ -53,13 +53,8 @@ import { CompetitionsModule } from './competitions/competitions.module';
 import { NftModule } from './nft/nft.module';
 import { HealthModule } from './health/health.module';
 import { RateLimitModule } from './common/rate-limit.module';
- feature/295-discord-community-integration
 import { DiscordBotModule } from './integrations/discord/discord-bot.module';
-
- feature/294-telegram-bot-integration
 import { TelegramBotModule } from './integrations/telegram/telegram-bot.module';
-
- feature/293-mobile-api-optimizations
 import { MobileModule } from './mobile/mobile.module';
 
 import { AutomationModule } from './integrations/automation-platforms/automation.module';
@@ -72,9 +67,7 @@ import { PortfolioModule } from './portfolio/portfolio.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { AuditModule } from './audit-log/audit.module';
 import { SocialExportModule } from './social-export/social-export.module';
- main
- main
- main
+import { QuotaReportingModule } from './multitenancy/quota-reporting/quota-reporting.module';
 
 @Module({
   imports: [
@@ -175,6 +168,7 @@ import { SocialExportModule } from './social-export/social-export.module';
     SecurityModule,
     SecurityMonitoringModule,
     AccessControlModule,
+    QuotaReportingModule,
     KycModule,
     ProductAnalyticsModule,
     BackupModule,
@@ -188,13 +182,8 @@ import { SocialExportModule } from './social-export/social-export.module';
     NftModule,
     HealthModule,
     RateLimitModule,
- feature/295-discord-community-integration
     DiscordBotModule,
-
- feature/294-telegram-bot-integration
     TelegramBotModule,
-
- feature/293-mobile-api-optimizations
     MobileModule,
 
     AutomationModule,
@@ -207,9 +196,6 @@ import { SocialExportModule } from './social-export/social-export.module';
     NotificationsModule,
     AuditModule,
     SocialExportModule,
- main
- main
- main
   ],
   providers: [StellarConfigService],
   exports: [StellarConfigService],
